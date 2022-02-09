@@ -7,28 +7,33 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.android.shoestore.R
 import com.example.android.shoestore.databinding.FragmentLoginBinding
 
 class LoginFragment : Fragment() {
 
+    private lateinit var binding: FragmentLoginBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding: FragmentLoginBinding = DataBindingUtil.inflate(
-            inflater,
-            R.layout.fragment_login, container, false
+        binding = DataBindingUtil.inflate(
+            inflater, R.layout.fragment_login,
+            container, false
         )
-        binding.loginButton.setOnClickListener { view: View ->
-            view.findNavController()
-                .navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
-        }
-        binding.createButton.setOnClickListener { view: View ->
-            view.findNavController()
-                .navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
-        }
         setHasOptionsMenu(true)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding.loginButton.setOnClickListener {
+            findNavController()
+                .navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
+        }
+        binding.createButton.setOnClickListener {
+            findNavController()
+                .navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
+        }
     }
 }

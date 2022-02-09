@@ -4,5 +4,5 @@ import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class Shoe(var name: String, var size: Double, var company: String, var description: String,
+data class Shoe(val name: String, val size: Double, val company: String, val description: String,
                 val images: List<String> = mutableListOf()) : Parcelable

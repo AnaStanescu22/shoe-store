@@ -5,25 +5,32 @@ import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.example.android.shoestore.R
 import com.example.android.shoestore.databinding.FragmentShoeListBinding
 
 class ShoeListFragment : Fragment() {
+
+    private lateinit var binding: FragmentShoeListBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding: FragmentShoeListBinding = DataBindingUtil.inflate(
+        binding = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_shoe_list, container, false
         )
-        binding.addButton.setOnClickListener { view: View ->
-            view.findNavController()
-                .navigate(ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailFragment())
-        }
+
         setHasOptionsMenu(true)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding.addButton.setOnClickListener {
+            findNavController()
+                .navigate(ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailFragment())
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -32,7 +39,7 @@ class ShoeListFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return NavigationUI.onNavDestinationSelected(item, requireView().findNavController())
-                || super.onOptionsItemSelected(item)
+        findNavController().navigate(R.id.loginFragment)
+        return super.onOptionsItemSelected(item)
     }
 }
