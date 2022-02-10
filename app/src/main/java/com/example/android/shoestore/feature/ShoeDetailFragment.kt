@@ -6,13 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.android.shoestore.R
 import com.example.android.shoestore.databinding.FragmentShoeDetailBinding
 
 class ShoeDetailFragment : Fragment() {
 
+    private val sharedViewModel: ShoeListViewModel by activityViewModels()
     private lateinit var binding: FragmentShoeDetailBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,6 +29,11 @@ class ShoeDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.saveButton.setOnClickListener {
+            val name = binding.nameEditText.text
+            val size = binding.sizeEditText.text
+            val company = binding.companyEditText.text
+            val description = binding.descriptionEditText.text
+            sharedViewModel.addShoe(name,size,company,description)
             findNavController()
                 .navigate(ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment())
         }
