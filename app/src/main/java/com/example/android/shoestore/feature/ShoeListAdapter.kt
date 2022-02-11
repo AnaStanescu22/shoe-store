@@ -21,8 +21,9 @@ class ShoeRecyclerAdapter : RecyclerView.Adapter<ShoeRecyclerAdapter.ShoeViewHol
         parent: ViewGroup,
         viewType: Int
     ): ShoeViewHolder {
+        var layoutInflater = LayoutInflater.from(parent.context)
         binding = DataBindingUtil.inflate(
-            LayoutInflater.from(parent.context), R.layout.item_shoe, parent, false
+            layoutInflater, R.layout.item_shoe, parent, false
         )
         return ShoeViewHolder(binding)
     }
