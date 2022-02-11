@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.example.android.shoestore.R
 import com.example.android.shoestore.databinding.ItemShoeBinding
 import com.example.android.shoestore.model.Shoe
@@ -21,7 +22,7 @@ class ShoeRecyclerAdapter : RecyclerView.Adapter<ShoeRecyclerAdapter.ShoeViewHol
         parent: ViewGroup,
         viewType: Int
     ): ShoeViewHolder {
-        var layoutInflater = LayoutInflater.from(parent.context)
+        val layoutInflater = LayoutInflater.from(parent.context)
         binding = DataBindingUtil.inflate(
             layoutInflater, R.layout.item_shoe, parent, false
         )
@@ -39,7 +40,7 @@ class ShoeRecyclerAdapter : RecyclerView.Adapter<ShoeRecyclerAdapter.ShoeViewHol
         RecyclerView.ViewHolder(binding.root) {
 
         fun bindShoe(shoe: Shoe) {
-//            binding.image.setImageResource(shoes.images)
+            binding.image.load("https://www.pngplay.com/wp-content/uploads/6/Flat-Shoes-Icon-PNG-Clipart-Background.png")
             binding.nameTextView.text = shoe.name
             binding.sizeTextView.text = shoe.size.toString()
             binding.companyTextView.text = shoe.company
