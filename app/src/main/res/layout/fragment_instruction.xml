@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/fragment_instruction"
@@ -12,10 +11,10 @@
             android:id="@+id/title_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            android:text="Instructions"
+            android:layout_marginTop="@dimen/large_layout_margin"
+            android:text="@string/instructions_title"
             android:textAlignment="center"
-            android:textSize="60sp"
+            android:textSize="@dimen/large_text_size"
             app:layout_constraintBottom_toTopOf="@+id/instruction_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -23,11 +22,11 @@
 
         <TextView
             android:id="@+id/instruction_text"
-            android:layout_width="350dp"
+            android:layout_width="344dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:padding="10dp"
-            android:text="Next you will see a list of shoes. If you want to add a custom shoe you need to press the Add shoe button. Then you will fill in the following fields: name, size, company, description, image"
+            android:layout_marginTop="@dimen/small_layout_margin"
+            android:padding="@dimen/small_padding"
+            android:text="@string/instructions"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/title_text" />
@@ -37,12 +36,10 @@
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="100dp"
-            android:text="Start"
+            android:layout_marginBottom="@dimen/large_layout_margin"
+            android:text="@string/start"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

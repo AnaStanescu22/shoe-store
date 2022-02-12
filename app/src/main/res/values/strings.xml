@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">Shoe Store</string>
+    <string name="instructions_title">Instructions</string>
+    <string name="instructions">Next up, you will see a list of shoes. If you want to add a custom shoe, you need to press the Add shoe button. Then you will fill in the following fields: name, size, company, description, image</string>
+    <string name="start">Start</string>
+    <string name="password">Password</string>
+    <string name="add_your_password">Add your password</string>
+    <string name="login">Login</string>
+    <string name="create">Create</string>
+    <string name="name">Name</string>
+    <string name="add_the_name">Add the name</string>
+    <string name="size">Size</string>
+    <string name="add_the_size">Add the size</string>
+    <string name="company">Company</string>
+    <string name="add_the_company">Add the company</string>
+    <string name="description">Description</string>
+    <string name="add_the_description">Add the description</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="add_shoe">Add shoe</string>
+    <string name="welcome_title">Welcome</string>
+    <string name="welcome_text">This is a shoe store. Here you can add your custom shoes.</string>
+    <string name="next">Next</string>
+    <string name="email">Email</string>
+    <string name="add_your_email_adress">Add your email adress</string>
 </resources>
