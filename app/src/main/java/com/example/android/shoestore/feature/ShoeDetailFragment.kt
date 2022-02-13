@@ -30,16 +30,22 @@ class ShoeDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.saveButton.setOnClickListener {
-            val name = binding.nameEditText.text.toString()
-            val size = binding.sizeEditText.text.toString().toDouble()
-            val company = binding.companyEditText.text.toString()
-            val description = binding.descriptionEditText.text.toString()
-            val inputFields = listOf(name, size.toString(), company, description)
+            val name = binding.nameEditText.text
+            val size = binding.sizeEditText.text
+            val company = binding.companyEditText.text
+            val description = binding.descriptionEditText.text
+            val inputFields = listOf(name, size, company, description)
             if (inputFields.any {
                     it.isEmpty()
-                }) Toast.makeText(context, "Fill in the fields", Toast.LENGTH_SHORT).show()
+                })
+                Toast.makeText(context, "Fill in the fields", Toast.LENGTH_SHORT).show()
             else {
-                sharedViewModel.addShoe(name, size, company, description)
+                sharedViewModel.addShoe(
+                    name.toString(),
+                    size.toString().toDouble(),
+                    company.toString(),
+                    description.toString()
+                )
                 findNavController()
                     .navigate(ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment())
             }
