@@ -51,7 +51,7 @@ class ShoeListFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        findNavController().navigate(R.id.loginFragment)
+        findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToLoginFragment())
         return super.onOptionsItemSelected(item)
     }
 }
