@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="shoe"
+            type="com.example.android.shoestore.model.Shoe" />
+    </data>
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -33,6 +39,7 @@
                 android:paddingEnd="@dimen/small_padding"
                 android:paddingBottom="@dimen/small_padding"
                 android:textSize="@dimen/small_text_size"
+                android:text = "@{shoe.name}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/image"
                 app:layout_constraintTop_toTopOf="@+id/image"
@@ -45,6 +52,7 @@
                 android:layout_marginEnd="@dimen/layout_margin"
                 android:padding="@dimen/small_padding"
                 android:textSize="@dimen/small_text_size"
+                android:text = "@{Double.toString(shoe.size)}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/image"
                 app:layout_constraintTop_toBottomOf="@+id/nameTextView"
@@ -57,6 +65,7 @@
                 android:layout_marginEnd="@dimen/layout_margin"
                 android:padding="@dimen/small_padding"
                 android:textSize="@dimen/small_text_size"
+                android:text = "@{shoe.company}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/image"
                 app:layout_constraintTop_toBottomOf="@+id/sizeTextView"
@@ -68,6 +77,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/layout_margin"
                 android:maxLines="5"
+                android:text = "@{shoe.description}"
                 android:padding="@dimen/small_padding"
                 android:textSize="@dimen/small_text_size"
                 app:layout_constraintEnd_toEndOf="parent"

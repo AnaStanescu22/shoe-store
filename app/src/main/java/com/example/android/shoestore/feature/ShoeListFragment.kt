@@ -7,15 +7,14 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.android.shoestore.R
 import com.example.android.shoestore.databinding.FragmentShoeListBinding
+import com.example.android.shoestore.databinding.ItemShoeBinding
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
 class ShoeListFragment : Fragment() {
     private val sharedViewModel: ShoeListViewModel by activityViewModels()
-    private lateinit var shoeAdapter : ShoeRecyclerAdapter
     private lateinit var binding: FragmentShoeListBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,16 +26,20 @@ class ShoeListFragment : Fragment() {
         )
 
         setHasOptionsMenu(true)
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        shoeAdapter = ShoeRecyclerAdapter()
-        binding.shoeRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-        binding.shoeRecyclerView.adapter = shoeAdapter
 
-        sharedViewModel.state.onEach { shoeState ->
-            shoeAdapter.setShoe(shoeState.shoes)
+        sharedViewModel.shoe.onEach {
+            for(shoe in it){
+                DataBindingUtil.inflate<ItemShoeBinding>(
+                    layoutInflater,R.layout.item_shoe, binding.fragmentList ,true)
+                    .apply {
+                    this.shoe = shoe
+                }
+            }
         }. launchIn(lifecycleScope)
 
         binding.addButton.setOnClickListener {

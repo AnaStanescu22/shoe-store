@@ -1,8 +1,7 @@
 package com.example.android.shoestore.model
 
-import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
+import androidx.databinding.BaseObservable
 
-@Parcelize
-data class Shoe(val name: String, val size: Double, val company: String, val description: String,
-                val images: List<String> = mutableListOf()) : Parcelable
+
+data class Shoe(var name: String, var size: Double, var company: String, var description: String,
+                val images: List<String> = mutableListOf()) :  BaseObservable()
