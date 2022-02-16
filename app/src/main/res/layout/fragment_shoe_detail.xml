@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="shoe"
             type="com.example.android.shoestore.model.Shoe" />
@@ -12,11 +13,13 @@
             type="com.example.android.shoestore.feature.ShoeListViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <LinearLayout
         android:id="@+id/fragment_detail"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/small_layout_margin">
+        android:layout_margin="@dimen/small_layout_margin"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/name_text"
@@ -24,10 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/small_layout_margin"
             android:text="@string/name"
-            android:textSize="@dimen/text_size"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textSize="@dimen/text_size" />
 
         <EditText
             android:id="@+id/name_editText"
@@ -36,10 +36,7 @@
             android:hint="@string/add_the_name"
             android:inputType="text"
             android:maxLines="1"
-            android:text="@={shoe.name}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/name_text" />
+            android:text="@={shoe.name}" />
 
         <TextView
             android:id="@+id/size_text"
@@ -47,22 +44,16 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/small_layout_margin"
             android:text="@string/size"
-            android:textSize="@dimen/text_size"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/name_editText" />
+            android:textSize="@dimen/text_size" />
 
         <EditText
             android:id="@+id/size_editText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/add_the_size"
-            android:text="@={`` + shoe.size}"
             android:inputType="number"
             android:maxLines="1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/size_text" />
+            android:text="@={`` + shoe.size}" />
 
         <TextView
             android:id="@+id/company_text"
@@ -70,10 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/small_layout_margin"
             android:text="@string/company"
-            android:textSize="@dimen/text_size"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/size_editText" />
+            android:textSize="@dimen/text_size" />
 
         <EditText
             android:id="@+id/company_editText"
@@ -81,11 +69,8 @@
             android:layout_height="wrap_content"
             android:hint="@string/add_the_company"
             android:inputType="text"
-            android:text="@={shoe.company}"
             android:maxLines="1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/company_text" />
+            android:text="@={shoe.company}" />
 
         <TextView
             android:id="@+id/description_text"
@@ -93,10 +78,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/small_layout_margin"
             android:text="@string/description"
-            android:textSize="@dimen/text_size"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/company_editText" />
+            android:textSize="@dimen/text_size" />
 
         <EditText
             android:id="@+id/description_editText"
@@ -104,34 +86,31 @@
             android:layout_height="wrap_content"
             android:hint="@string/add_the_description"
             android:inputType="text"
-            android:text="@={shoe.description}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/description_text" />
+            android:text="@={shoe.description}" />
 
-        <Button
-            android:id="@+id/save_button"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/large_layout_margin"
-            android:layout_marginBottom="@dimen/large_layout_margin"
-            android:text="@string/save"
-            android:onClick="@{(v) -> shoeListViewModel.addShoe(v,shoe)}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/large_layout_margin"
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/cancel_button"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/large_layout_margin"
-            android:layout_marginBottom="@dimen/large_layout_margin"
-            android:onClick="@{(v) -> shoeListViewModel.navigate(v)}"
-            android:text="@string/cancel"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            <Button
+                android:id="@+id/save_button"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/large_layout_margin"
+                android:onClick="@{(v) -> shoeListViewModel.addShoe(v,shoe)}"
+                android:text="@string/save" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <Button
+                android:id="@+id/cancel_button"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{(v) -> shoeListViewModel.navigate(v)}"
+                android:text="@string/cancel" />
+
+        </LinearLayout>
+    </LinearLayout>
 </layout>

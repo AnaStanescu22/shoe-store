@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:id="@+id/fragment_instruction"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/title_text"
@@ -14,32 +14,24 @@
             android:layout_marginTop="@dimen/large_layout_margin"
             android:text="@string/instructions_title"
             android:textAlignment="center"
-            android:textSize="@dimen/large_text_size"
-            app:layout_constraintBottom_toTopOf="@+id/instruction_text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textSize="@dimen/large_text_size" />
 
         <TextView
             android:id="@+id/instruction_text"
             android:layout_width="344dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/small_layout_margin"
             android:padding="@dimen/small_padding"
-            android:text="@string/instructions"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/title_text" />
+            android:text="@string/instructions" />
 
         <Button
             android:id="@+id/start_button"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/large_layout_margin"
-            android:text="@string/start"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/large_layout_margin"
+            android:text="@string/start" />
+    </LinearLayout>
 </layout>
