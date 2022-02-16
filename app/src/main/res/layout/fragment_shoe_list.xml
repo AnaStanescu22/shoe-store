@@ -2,6 +2,8 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- I preffered LinearLayout here because the view layout isn't complex -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import coil.load
 import com.example.android.shoestore.R
 import com.example.android.shoestore.databinding.FragmentShoeListBinding
 import com.example.android.shoestore.databinding.ItemShoeBinding
@@ -33,14 +34,16 @@ class ShoeListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         sharedViewModel.shoe.onEach {
-            for(shoe in it){
+            for (shoe in it) {
                 DataBindingUtil.inflate<ItemShoeBinding>(
-                    layoutInflater,R.layout.item_shoe, binding.fragmentList ,true)
+                    layoutInflater, R.layout.item_shoe, binding.fragmentList, true
+                )
                     .apply {
-                    this.shoe = shoe
-                }
+                        this.shoe = shoe
+                        this.image.load("https://www.pngplay.com/wp-content/uploads/6/Flat-Shoes-Icon-PNG-Clipart-Background.png")
+                    }
             }
-        }. launchIn(lifecycleScope)
+        }.launchIn(lifecycleScope)
 
         binding.addButton.setOnClickListener {
             findNavController()

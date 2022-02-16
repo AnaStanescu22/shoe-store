@@ -16,7 +16,7 @@ class ShoeListViewModel(app: Application) : AndroidViewModel(app) {
     val shoe = _shoe.asStateFlow()
 
     fun addShoe(v: View, shoe: Shoe){
-        _shoe.value?.add(shoe)
+        _shoe.value.add(shoe)
         navigate(v)
     }
 
